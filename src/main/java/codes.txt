@@ -1,0 +1,11 @@
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        double message;
+        do {
+            System.out.println("Enter");
+            message = myObj.nextDouble();
+            Chat.messageResponse response = Chat.messageResponse.newBuilder()
+                    .setFrom("server")
+                    .setMessage(String.valueOf(message))
+                    .build();
+            responseObserver.onNext(response);
+        } while (message != 0);

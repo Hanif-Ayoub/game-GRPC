@@ -1,0 +1,21 @@
+syntax="proto3";
+option java_package="ma.enset.stubs";
+
+service gameService{
+  rpc login(connect) returns(stream messageResponse);
+  rpc guess(messageRequest) returns(messageResponse);
+}
+
+message connect{
+  string userName=1;
+}
+
+message messageRequest{
+  string from=1;
+  string number=2;
+}
+
+message messageResponse{
+  string from=1;
+  string message=2;
+}
